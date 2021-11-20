@@ -1,1 +1,24 @@
-<p>register works!</p>
+<section class="auth">
+  <header class="auth__header">
+    <h2>Sign up</h2>
+    <a [routerLink]="['/login']">Have an account?</a>
+  </header>
+  <form [formGroup]="form" class="auth__form" (ngSubmit)="onRegister()">
+    <fieldset>
+      <fieldset>
+        <input formControlName="username" type="text" placeholder="Username" />
+      </fieldset>
+      <fieldset>
+        <input formControlName="email" type="email" placeholder="Email" />
+      </fieldset>
+      <fieldset>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </fieldset>
+    </fieldset>
+    <button class="auth__button" type="submit" [disabled]="isSubmitting$ | async">Sign up</button>
+  </form>
+</section>

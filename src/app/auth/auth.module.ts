@@ -1,11 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { RegisterComponent } from 'src/app/auth/register/register.component';
+import { reducers } from 'src/app/auth/state/reducers';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
+const routes: Routes = [
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+];
 @NgModule({
-  imports: [CommonModule],
-  declarations: [
-    RegisterComponent
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    StoreModule.forFeature('auth', reducers),
   ],
+  declarations: [RegisterComponent],
+  providers: [AuthService],
 })
 export class AuthModule {}

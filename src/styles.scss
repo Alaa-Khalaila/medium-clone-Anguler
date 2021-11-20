@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Auth */
+
+.auth{
+    width: 40%;
+    margin: 0 auto;
+    text-align: end;
+    
+        &__header{
+            text-align: center;
+    
+            & h2{
+                font-size: 30px;
+                margin: 0;
+            }
+    
+            & a{
+                text-decoration: none;
+                color:#96D196 ;
+            }
+        }
+    
+        &__form{
+            & input{
+                width: 100%;
+                padding: 14px;
+                margin: 7px 0;
+            }
+        }
+
+        &__button{
+            padding: 10px 20px;
+            background-color:#96D196 ;
+            border: 1px solid #78c778;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    
+        fieldset{
+            border: 0;
+        }
+    }
