@@ -3,6 +3,7 @@
     <h2>Sign up</h2>
     <a [routerLink]="['/login']">Have an account?</a>
   </header>
+  <mc-backend-error-messages *ngIf="backendErrors$ | async" [backendErrors]="backendErrors$ | async"></mc-backend-error-messages>
   <form [formGroup]="form" class="auth__form" (ngSubmit)="onRegister()">
     <fieldset>
       <fieldset>

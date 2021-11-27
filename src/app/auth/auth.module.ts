@@ -6,6 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { RegisterComponent } from 'src/app/auth/register/register.component';
 import { reducers } from 'src/app/auth/state/reducers';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { BackendErrorMessagesComponent } from '../shared/modules/backendErrorMessages/components/backend-error-messages/backend-error-messages.component';
+import {  BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backendErrorMessages.module';
 
 const routes: Routes = [
   {
@@ -19,6 +21,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
+    BackendErrorMessagesModule
   ],
   declarations: [RegisterComponent],
   providers: [AuthService],

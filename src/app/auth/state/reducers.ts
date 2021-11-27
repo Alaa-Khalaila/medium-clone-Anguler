@@ -9,7 +9,7 @@ import {
 
 const initialState: AuthState = {
   isSubmitting: false,
-  isLoggedIn: false,
+  isLoggedIn: false
 };
 
 const authReducer = createReducer(
