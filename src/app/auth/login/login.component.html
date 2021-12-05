@@ -1,0 +1,22 @@
+<section class="auth">
+    <header class="auth__header">
+        <h2>Sign in</h2>
+        <a [routerLink]="['/register']">Need an account?</a>
+      </header>
+      <!-- <mc-backend-error-messages></mc-backend-error-messages> -->
+      <form [formGroup]="form" class="auth__form" (ngSubmit)="onLogin()">
+        <fieldset>
+          <fieldset>
+            <input formControlName="email" type="email" placeholder="Email" />
+          </fieldset>
+          <fieldset>
+            <input
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </fieldset>
+        </fieldset>
+        <button class="auth__button" type="submit" [disabled]="isSubmitting$ | async">Sign in</button>
+      </form>
+</section>

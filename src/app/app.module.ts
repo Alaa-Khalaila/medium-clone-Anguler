@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffectimplements } from './auth/state/effects/register.effect';
+import { LoginEffectImplements } from './auth/state/effects/login.effect';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,7 @@ import { RegisterEffectimplements } from './auth/state/effects/register.effect';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([RegisterEffectimplements]),
+    EffectsModule.forRoot([RegisterEffectimplements,LoginEffectImplements]),
   ],
   providers: [],
   bootstrap: [AppComponent],

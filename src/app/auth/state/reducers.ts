@@ -6,10 +6,12 @@ import {
   registerSuccessAction,
   registerFailuerAction,
 } from 'src/app/auth/state/actions/register.action';
+import { loginAction, loginFailuerAction, loginSuccessAction } from './actions/login.actions';
+import { AuthService } from '../services/auth.service';
 
 const initialState: AuthState = {
   isSubmitting: false,
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 const authReducer = createReducer(
@@ -33,6 +35,27 @@ const authReducer = createReducer(
     ...state,
     isSubmitting: false,
     ValidationErrors: action.errors,
+  })),
+
+  on(
+    loginAction,
+    (state): AuthState => ({
+      ...state,
+      isSubmitting: true,
+    })
+  ),
+
+  on(loginSuccessAction,(state:AuthState,action)=>({
+    ...state,
+    isSubmitting:false,
+    isLoggedIn:true,
+    currentUser:action.currentUser
+  })),
+
+  on(loginFailuerAction,(state:AuthState,action)=>({
+    ...state,
+    isSubmitting:false,
+    ValidationErrors:action.errors
   }))
 );
 
