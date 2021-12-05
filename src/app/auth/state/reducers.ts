@@ -21,6 +21,7 @@ const authReducer = createReducer(
     (state): AuthState => ({
       ...state,
       isSubmitting: true,
+      ValidationErrors:undefined
     })
   ),
 
@@ -42,6 +43,7 @@ const authReducer = createReducer(
     (state): AuthState => ({
       ...state,
       isSubmitting: true,
+      ValidationErrors:undefined
     })
   ),
 
