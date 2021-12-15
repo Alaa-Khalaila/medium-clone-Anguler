@@ -10,7 +10,7 @@
         <ng-container *ngIf="isLoggedIn$|async">
             <li class="navbar__list__item" [routerLink]="['/article']">New Article</li>
             <li class="navbar__list__item" [routerLink]="['/setting']">Setting</li>
-            <li class="navbar__list__item" ><img [src]="(currentUser$ | async)?.image" alt=""></li>
+            <li class="navbar__list__item" ><img [src]="(currentUser$ | async)?.image" alt="" class="navbar__img"></li>
             <li class="navbar__list__item" [routerLink]="['/profile']">{{(currentUser$ | async)?.username}}</li>
         </ng-container>
     </ul>

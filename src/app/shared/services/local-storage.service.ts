@@ -14,9 +14,12 @@ export class LocalStorageService {
     }
   }
 
-  get(key: string):any {
+  get(key:string):any {
     try {
-      return localStorage.getItem(JSON.parse(key));
+      const token = localStorage.getItem(key)
+      if(typeof(token)=="string"){
+        return JSON.parse(token)
+      }
     } catch (error) {
       console.log('Error in getting data from local storage', error);
     }

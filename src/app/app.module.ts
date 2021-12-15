@@ -7,12 +7,14 @@ import { AuthModule } from 'src/app/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffectimplements } from './auth/state/effects/register.effect';
 import { LoginEffectImplements } from './auth/state/effects/login.effect';
 import { NavbarModule } from './shared/modules/navbar/navbar.module';
 import { GetCurrentUserImplements } from './auth/state/effects/getCurrentUser.effect';
+import { LocalStorageService } from './shared/services/local-storage.service';
+import { AuthInterceptor } from './shared/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,9 +29,20 @@ import { GetCurrentUserImplements } from './auth/state/effects/getCurrentUser.ef
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([RegisterEffectimplements,LoginEffectImplements,GetCurrentUserImplements]),
+    EffectsModule.forRoot([
+      RegisterEffectimplements,
+      LoginEffectImplements,
+      GetCurrentUserImplements,
+    ]),
   ],
-  providers: [],
+  providers: [
+    LocalStorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
