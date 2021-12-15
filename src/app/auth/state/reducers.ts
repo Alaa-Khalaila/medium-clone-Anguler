@@ -8,10 +8,12 @@ import {
 } from 'src/app/auth/state/actions/register.action';
 import { loginAction, loginFailuerAction, loginSuccessAction } from './actions/login.actions';
 import { AuthService } from '../services/auth.service';
+import { getCurrentUserAction, getCurrentUserFailuer, getCurrentUserSuccess } from './actions/getCurrentUser.action';
 
 const initialState: AuthState = {
   isSubmitting: false,
   isLoggedIn: false,
+  isLoading:false
 };
 
 const authReducer = createReducer(
@@ -58,6 +60,25 @@ const authReducer = createReducer(
     ...state,
     isSubmitting:false,
     ValidationErrors:action.errors
+  })),
+
+  on(getCurrentUserAction,(state:AuthState)=>({
+    ...state,
+    isLoading:true,
+  })),
+
+  on(getCurrentUserSuccess,(state:AuthState,action)=>({
+    ...state,
+    isLoggedIn:true,
+    isLoading:false,
+    currentUser:action.currentUser
+  })),
+
+  on(getCurrentUserFailuer,(state:AuthState)=>({
+    ...state,
+    isLoading:false,
+    isLoggedIn:false,
+    currentUser:undefined
   }))
 );
 

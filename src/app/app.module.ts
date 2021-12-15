@@ -11,12 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffectimplements } from './auth/state/effects/register.effect';
 import { LoginEffectImplements } from './auth/state/effects/login.effect';
+import { NavbarModule } from './shared/modules/navbar/navbar.module';
+import { GetCurrentUserImplements } from './auth/state/effects/getCurrentUser.effect';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AuthModule,
+    NavbarModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
@@ -24,7 +27,7 @@ import { LoginEffectImplements } from './auth/state/effects/login.effect';
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([RegisterEffectimplements,LoginEffectImplements]),
+    EffectsModule.forRoot([RegisterEffectimplements,LoginEffectImplements,GetCurrentUserImplements]),
   ],
   providers: [],
   bootstrap: [AppComponent],

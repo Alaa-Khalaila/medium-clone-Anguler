@@ -1,7 +1,19 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    color: rgba(0,0,0,.3);
 }
 
 /* Auth */
@@ -13,6 +25,7 @@
     
         &__header{
             text-align: center;
+            color: rgb(71, 68, 68);
     
             & h2{
                 font-size: 30px;
