@@ -15,6 +15,7 @@ import { NavbarModule } from './shared/modules/navbar/navbar.module';
 import { GetCurrentUserImplements } from './auth/state/effects/getCurrentUser.effect';
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { AuthInterceptor } from './shared/services/auth-interceptor.service';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { AuthInterceptor } from './shared/services/auth-interceptor.service';
     BrowserModule,
     AuthModule,
     NavbarModule,
+    GlobalFeedModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
