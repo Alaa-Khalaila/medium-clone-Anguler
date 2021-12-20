@@ -7,7 +7,6 @@ import {
   registerFailuerAction,
 } from 'src/app/auth/state/actions/register.action';
 import { loginAction, loginFailuerAction, loginSuccessAction } from './actions/login.actions';
-import { AuthService } from '../services/auth.service';
 import { getCurrentUserAction, getCurrentUserFailuer, getCurrentUserSuccess } from './actions/getCurrentUser.action';
 
 const initialState: AuthState = {
