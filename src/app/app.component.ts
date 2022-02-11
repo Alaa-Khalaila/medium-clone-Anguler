@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AuthService } from './auth/services/auth.service';
 import { getCurrentUserAction } from './auth/state/actions/getCurrentUser.action';
 
 @Component({

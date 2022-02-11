@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  list-style: none;
+
+  &__item {
+    a {
+      padding: 1rem;
+      border: 1px solid silver;
+      text-decoration: none;
+    }
+
+    &.active {
+      a {
+        background-color: #5cb85c;
+        color: #fff;
+      }
+    }
+  }
+}

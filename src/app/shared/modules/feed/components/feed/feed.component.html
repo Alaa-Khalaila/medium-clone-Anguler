@@ -1,1 +1,31 @@
-<p>feed works!</p>
+<mc-loading *ngIf="isLoading$ |async"></mc-loading>
+
+<mc-error-message *ngIf="errors$ | async"></mc-error-message>
+
+<div>
+    <div class="article" *ngFor="let article of (data$|async)?.articles">
+        <div class="article__left">
+            <div class="article__author">
+                <img class="author__image" src={{article.author.image}} alt="Author profile picture">
+                <div class="author__details">
+                    <div>{{article.author.username}}</div>
+                    <div>{{article.createdAt}}</div>
+                </div>
+            </div>
+            <div class="article__description">
+                <div>{{article.title}}</div>
+                <div>{{article.description}}</div>
+            </div>
+            <div>Read more...</div>
+        </div>
+        <div class="article__right">
+            ♥ {{article.favoritesCount}}
+        </div>
+    </div>
+    <ng-container *ngIf="data$ | async as data">
+        <mc-pagination [total]="data.articlesCount" [limit]="limit" [url]="baseUrl" [currentPage]="currentPage">
+        </mc-pagination>
+    </ng-container>
+
+
+</div>

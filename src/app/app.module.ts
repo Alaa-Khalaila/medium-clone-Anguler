@@ -16,6 +16,7 @@ import { GetCurrentUserImplements } from './auth/state/effects/getCurrentUser.ef
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { AuthInterceptor } from './shared/services/auth-interceptor.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { GetFeedImplements } from './shared/modules/feed/state/effects/getFeed.effect';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
       RegisterEffectimplements,
       LoginEffectImplements,
       GetCurrentUserImplements,
+      GetFeedImplements
     ]),
   ],
   providers: [
